@@ -1,0 +1,32 @@
+{
+    "predef": [
+        stubModule,
+        
+        // AMD
+        "define",
+        "require",
+
+        "console",
+
+        // jasmine
+        "it", 
+        "expect", 
+        "beforeEach", 
+        "afterEach", 
+        "spyOn", 
+        "jasmine", 
+        "runs", 
+        "waitsFor",
+        "describe",
+        "xit"
+    ],
+
+    "evil": true,
+    "regexdash": true,
+    "browser": true,
+    "wsh": true,
+    // "trailing": true,
+    "sub": true,
+    "undef": true,
+    "unused": true
+}

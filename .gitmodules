@@ -1,0 +1,6 @@
+[submodule "dojo"]
+	path = dojo
+	url = https://github.com/dojo/dojo.git
+[submodule "jasmine"]
+	path = jasmine
+	url = https://github.com/pivotal/jasmine.git
