@@ -14,7 +14,7 @@ Setup
 
 When you want to stub a module:
 
-    var StubbedModule = StubModule('path/to/module', {'dep': stubb});
+    var StubbedModule = StubModule('path/to/module', {'dep': stub});
     var testObject = new StubbedModule();
 
 Other Notes
@@ -25,3 +25,5 @@ This project loads `dojo` and `jasmine` as git submodules so make sure that you 
     git submodule update --init --recursive
 
 ...after cloning the repository.
+
+For now, this will not work with ESRI's built version of dojo (3.2) because they haven't included the `dojo-undef-api` has feature in their build which means that we can't use `require.undef`. Hopefully they'll include this in the future.
