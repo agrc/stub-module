@@ -26,4 +26,4 @@ This project loads `dojo` and `jasmine` as git submodules so make sure that you 
 
 ...after cloning the repository.
 
-For now, this will not work with ESRI's built version of dojo (3.2) because they haven't included the `dojo-undef-api` has feature in their build which means that we can't use `require.undef`. Hopefully they'll include this in the future.
+This will not work for the [ESRI JSAPI](http://help.arcgis.com/en/webapi/javascript/arcgis/) prior to version 3.4. However, at 3.4 they turned on the `dojo-undef-api` has tag and it works great!
