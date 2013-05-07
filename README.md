@@ -10,7 +10,7 @@ Open SpecRunner.html for a demo.
 Setup
 =====
 
-`SpecRunner.js` can be loaded like any other AMD module.
+`StubModule.js` can be loaded like any other AMD module.
 
 When you want to stub a module:
 
