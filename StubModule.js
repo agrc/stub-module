@@ -50,7 +50,9 @@ function (
 
         // remove stub aliases
         array.forEach(require.aliases, function (al, i) {
-            if (array.indexOf(clonedAliases, al) !== -1) {
+            if (array.some(clonedAliases, function (cAl) {
+                return al[0].test(cAl[0]);
+            })) {
                 require.aliases.splice(i, 1);
             }
         });
