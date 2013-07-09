@@ -49,10 +49,17 @@ function (
         });
 
         // remove stub aliases
+        var removedIndexs = [];
         array.forEach(require.aliases, function (al, i) {
-            if (array.indexOf(clonedAliases, al) !== -1) {
-                require.aliases.splice(i, 1);
+            if (array.some(clonedAliases, function (cAl) {
+                return al[0].test(cAl[0]);
+            })) {
+                removedIndexs.unshift(i);
             }
+        });
+
+        array.forEach(removedIndexs, function(i) {
+            require.aliases.splice(i,1);
         });
 
         // clear cache again
