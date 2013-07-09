@@ -21,5 +21,13 @@ function (
 
             expect(Hello_Stubbed()).toEqual(value);
         });
+        it("removes all aliases", function () {
+            var originalLength = require.aliases.length;
+            StubModule('src/Hello', {
+                'dojo/request/xhr': 'blah'
+            });
+
+            expect(require.aliases.length).toBe(originalLength);
+        });
     });
 });

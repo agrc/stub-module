@@ -52,7 +52,7 @@ function (
         var removedIndexs = [];
         array.forEach(require.aliases, function (al, i) {
             if (array.some(clonedAliases, function (cAl) {
-                return al[0].test(cAl[0]);
+                return al[0] === cAl[0];
             })) {
                 removedIndexs.unshift(i);
             }
