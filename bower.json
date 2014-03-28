@@ -16,7 +16,7 @@
     "bower_components",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
     "dojo": "~1.9.3",
     "jasmine": "~2.0.0"
   }
