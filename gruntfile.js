@@ -15,7 +15,8 @@ module.exports = function (grunt) {
                         'tests/testBootstrap.js',
                         'bower_components/dojo/dojo.js'
                     ],
-                    host: 'http://localhost:8000'
+                    host: 'http://localhost:8000',
+                    keepRunner: true
                 }
             }
         },

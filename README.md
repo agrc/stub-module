@@ -5,7 +5,7 @@ A method for mocking AMD dependencies when testing JavaScript modules using the 
 
 Inspired by [this stackoverflow question](http://stackoverflow.com/questions/11439540/how-can-i-mock-dependencies-for-unit-testing-in-requirejs) and [testr](https://github.com/mattfysh/testr.js).
 
-Open SpecRunner.html for a demo.
+Open tests/spec/SpecHello.js for a demo.
 
 Setup
 =====
@@ -14,16 +14,17 @@ Setup
 
 When you want to stub a module:
 
-    var StubbedModule = StubModule('path/to/module', {'dep': stub});
-    var testObject = new StubbedModule();
+    it('this is a demo', function (done) {
+        stubModule('path/to/module', {'dep': stub}).then(function (StubbedModule) {
+            var testObject = new StubbedModule();
+            // tests/assertions
+            done();
+        });
+    });
 
 Other Notes
 ===========
 
-This project loads `dojo` and `jasmine` as git submodules so make sure that you run:
-
-    git submodule update --init --recursive
-
-...after cloning the repository.
+Run `bower install` and `npm install` before running the tests. Run the tests by running `grunt travis`.
 
 This will not work for the [ESRI JSAPI](http://help.arcgis.com/en/webapi/javascript/arcgis/) prior to version 3.4. However, at 3.4 they turned on the `dojo-undef-api` has tag and it works great!

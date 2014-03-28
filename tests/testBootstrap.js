@@ -4,5 +4,8 @@ var dojoConfig = {
     packages: ['tests', 'src', {
         name: 'dojo',
         location: 'bower_components/dojo'
-    }]
+    }],
+    has: {
+        'dojo-undef-api': true
+    }
 };
