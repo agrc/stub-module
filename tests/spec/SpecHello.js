@@ -1,29 +1,29 @@
 require([
-    'src/Hello',
+    'tests/Hello',
     'dojo/promise/Promise',
-    'StubModule'
+    'src/StubModule'
 ],
 
 function (
     Hello,
     Promise,
-    StubModule
+    stubModule
     ) {
     describe('src/Hello', function () {
-        it("returns a Promise when it's not stubbed", function () {
-            expect(Hello()).toEqual(jasmine.any(Promise));
+        it('returns a Promise when it\'s not stubbed', function () {
+            expect(new Hello()).toEqual(jasmine.any(Promise));
         });
         it('stubs the xhr module', function () {
             var value = 'blah';
-            var Hello_Stubbed = StubModule('src/Hello', {
+            var HelloStubbed = stubModule('test/Hello', {
                 'dojo/request/xhr': jasmine.createSpy('xhrSpy').andReturn(value)
             });
 
-            expect(Hello_Stubbed()).toEqual(value);
+            expect(new HelloStubbed()).toEqual(value);
         });
-        it("removes all aliases", function () {
+        it('removes all aliases', function () {
             var originalLength = require.aliases.length;
-            StubModule('src/Hello', {
+            stubModule('src/Hello', {
                 'dojo/request/xhr': 'blah'
             });
 

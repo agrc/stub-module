@@ -1,0 +1,23 @@
+{
+  "name": "StubModule",
+  "main": "StubModule.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/agrc/StubModule",
+  "authors": [
+    "Scott Davis <stdavis@utah.gov>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "dependencies": {
+    "dojo": "~1.9.3",
+    "jasmine": "~2.0.0"
+  }
+}

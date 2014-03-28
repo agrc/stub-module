@@ -9,8 +9,6 @@ define([
         lang
     ) {
         return function(modulePath, stubs, forcedRefreshModules) {
-            // inspired by: http://stackoverflow.com/questions/11439540/how-can-i-mock-dependencies-for-unit-testing-in-requirejs
-            // and https://github.com/mattfysh/testr.js
             var aliases = [],
                 originalAliases = lang.clone(require.aliases),
                 key,
