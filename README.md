@@ -16,7 +16,8 @@ Setup
 When you want to stub a module:
 
     it('this is a demo', function (done) {
-        stubModule('path/to/module', {'dep': stub}).then(function (StubbedModule) {
+        var stub = {};
+        stubModule('path/to/module', {'path/to/dependency': stub}).then(function (StubbedModule) {
             var testObject = new StubbedModule();
             // tests/assertions
             done();
