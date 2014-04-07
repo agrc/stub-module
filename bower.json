@@ -1,7 +1,7 @@
 {
   "name": "StubModule",
   "main": "StubModule.js",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://github.com/agrc/StubModule",
   "authors": [
     "Scott Davis <stdavis@utah.gov>"
