@@ -2,7 +2,7 @@
 StubModule.js
 =============
 
-A method for mocking AMD dependencies when testing JavaScript modules using the [Jasmine test suite](http://pivotal.github.com/jasmine/) and the [Dojo AMD loader](http://dojotoolkit.org/reference-guide/loader).
+A method for mocking AMD dependencies when testing JavaScript modules that are loaded with the [Dojo AMD loader](http://dojotoolkit.org/reference-guide/loader).
 
 Inspired by [this stackoverflow question](http://stackoverflow.com/questions/11439540/how-can-i-mock-dependencies-for-unit-testing-in-requirejs) and [testr](https://github.com/mattfysh/testr.js).
 

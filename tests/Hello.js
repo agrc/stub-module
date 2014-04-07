@@ -5,7 +5,10 @@ define([
 function (
     xhr
     ) {
-    return function getData() {
-        return xhr('blah');
+    return {
+        getData: function () {
+            return xhr('blah');
+        },
+        xhr: xhr
     };
 });
