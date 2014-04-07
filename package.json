@@ -1,5 +1,5 @@
 {
-  "name": "AppName",
+  "name": "StubModule",
   "version": "0.2.1",
   "devDependencies": {
     "grunt": "~0.4",
