@@ -25,7 +25,9 @@ define([
         resetMap[modulePath] = {};
         for (key in stubs) {
             if (stubs.hasOwnProperty(key)) {
-                stubname = 'STUB_' + key;
+                // timestamp is to avoid a multiple define error when stubbing the same
+                // module twice. See 'can stub the same module more than once test'
+                stubname = 'STUB_' + key + Date.now();
 
                 stubMap[modulePath][key] = stubname;
                 resetMap[modulePath][key] = key;

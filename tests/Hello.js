@@ -1,14 +1,19 @@
 define([
-    'dojo/request/xhr'
+    'dojo/request/xhr',
+    'dojo/aspect'
 ],
 
 function (
-    xhr
+    xhr,
+    aspect
     ) {
     return {
         getData: function () {
             return xhr('blah');
         },
-        xhr: xhr
+        xhr: xhr,
+        testAspect: function () {
+            return aspect();
+        }
     };
 });

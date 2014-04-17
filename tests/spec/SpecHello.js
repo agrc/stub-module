@@ -1,12 +1,18 @@
 require([
     'tests/Hello',
+
     'dojo/promise/Promise',
+    'dojo/promise/all',
+
     'src/StubModule'
 ],
 
 function (
     hello,
+
     Promise,
+    all,
+
     stubModule
     ) {
     describe('src/Hello', function () {
@@ -19,6 +25,19 @@ function (
                 'dojo/request/xhr': jasmine.createSpy('xhrSpy').and.returnValue(value)
             }).then(function (helloStubbed) {
                 expect(helloStubbed.getData()).toEqual(value);
+                done();
+            });
+        });
+        it('can stub the same module more than once', function (done) {
+            var test = function (value) {
+                return stubModule('tests/Hello', {
+                    'dojo/aspect': jasmine.createSpy('aspectSpy').and.returnValue(value)
+                }).then(function (helloStubbed) {
+                    expect(helloStubbed.testAspect()).toEqual(value);
+                });
+            };
+
+            all([test(1), test(2)]).then(function () {
                 done();
             });
         });
