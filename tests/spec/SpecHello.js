@@ -4,7 +4,7 @@ require([
     'dojo/promise/Promise',
     'dojo/promise/all',
 
-    'src/StubModule'
+    'src/stub-module'
 ],
 
 function (
