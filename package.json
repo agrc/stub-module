@@ -1,6 +1,6 @@
 {
   "name": "StubModule",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-bump": "0.0.15",
