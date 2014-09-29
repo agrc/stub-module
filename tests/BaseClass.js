@@ -7,7 +7,7 @@ define([
     ) {
     return declare(null, {
         test: function () {
-            request('blah');
+            return request('blah');
         }
     });
 });

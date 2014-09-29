@@ -19,5 +19,16 @@ require([
                 done();
             });
         });
+        it('clears out dependency stubs', function (done) {
+            var spy = jasmine.createSpy('requestSpy').and.returnValue('hello');
+            stubmodule('tests/Recursive', {
+                'dojo/request': spy
+            }).then(function (StubbedModule) {
+                var testObject = new StubbedModule();
+
+                expect(testObject.test()).toEqual('hello');
+                done();
+            });
+        });
     });
 });

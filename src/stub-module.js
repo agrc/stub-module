@@ -59,7 +59,7 @@ define([
                 map: stubMap
             }, [modulePath], function (Module) {
                 // clear cache again
-                require.undef(modulePath);
+                undefDependencies(modulePath);
 
                 // reset map
                 require({map: resetMap});
