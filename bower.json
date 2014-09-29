@@ -17,7 +17,6 @@
     "tests"
   ],
   "devDependencies": {
-    "dojo": "~1.9.3",
-    "jasmine": "~2.0.0"
+    "dojo": "~1.9.3"
   }
 }

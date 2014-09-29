@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         jasmine: {
-            'default': {
+            main: {
                 options: {
                     specs: ['tests/spec/Spec*.js'],
                     vendor: [
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
             options: {
                 livereload: true
             },
-            tasks: ['jshint', 'jasmine:default:build']
+            tasks: ['jshint', 'jasmine:main:build']
         },
         connect: {
             uses_defaults: {}
@@ -46,14 +46,23 @@ module.exports = function (grunt) {
     });
 
     // Register tasks.
-    grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-bump');
+    for (var key in grunt.file.readJSON('package.json').devDependencies) {
+        if (key !== 'grunt' && key.indexOf('grunt') === 0) {
+            grunt.loadNpmTasks(key);
+        }
+    }
 
     // Default task.
-    grunt.registerTask('default', ['jasmine:default:build', 'jshint', 'connect', 'watch']);
+    grunt.registerTask('default', [
+        'jasmine:main:build',
+        'jshint',
+        'connect',
+        'watch'
+    ]);
 
-    grunt.registerTask('travis', ['jshint', 'connect', 'jasmine:default']);
+    grunt.registerTask('travis', [
+        'jshint',
+        'connect',
+        'jasmine:main'
+    ]);
 };

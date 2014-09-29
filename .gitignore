@@ -1,5 +1,6 @@
 *.sublime-project
 *.sublime-workspace
+.DS_Store
+.grunt/
 bower_components/
 node_modules/
-.grunt/
