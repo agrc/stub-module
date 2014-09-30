@@ -15,23 +15,35 @@ define([
         var returnModule;
         var def = new Deferred();
         var processedDependencies = [];
+        var baseClasses = [];
 
         var undefDependencies = function (mod) {
-            console.log(mod);
-            if (array.indexOf(processedDependencies, mod) !== -1) {
+            if (array.indexOf(processedDependencies, mod) !== -1 ||
+                mod.indexOf('!') !== -1) {
                 return;
             }
             processedDependencies.push(mod);
 
-            array.forEach(require.modules[modulePath].deps, function (dep) {
+            array.forEach(require.modules[mod].deps, function (dep) {
                 undefDependencies(dep.mid);
             });
-            require.undef(mod);
+
+            // undef all base classes if this is a class that was created using dojo/declare
+            // a bit worried about using `._meta.bases` but not sure what else to do at the moment
+            // always undef original module
+            var returnObj = require(modulePath);
+            if (mod === modulePath ||
+                (returnObj._meta &&
+                    array.indexOf(require(modulePath)._meta.bases, require(mod)) !== -1)
+                ) {
+                require.undef(mod);
+                baseClasses.push(mod);
+            }
         };
         
         // require stubbed module just in case it hasn't been required
         // so that we can get it's dependencies
-        require([modulePath], function () {
+        require([modulePath], function (returnObject) {
             undefDependencies(modulePath);
 
             // build maps
@@ -57,14 +69,19 @@ define([
             // get module with stubs
             require({
                 map: stubMap
-            }, [modulePath], function (Module) {
+            }, [modulePath], function (StubbedModule) {
                 // clear cache again
-                undefDependencies(modulePath);
+                array.forEach(baseClasses, lang.hitch(require, 'undef'));
 
                 // reset map
                 require({map: resetMap});
 
-                def.resolve(Module);
+                // require original module again just to make sure
+                // that all dependencies are cached again
+                require([modulePath], function () {
+                    // but return subbed module
+                    def.resolve(StubbedModule);
+                });
             });
         });
 
