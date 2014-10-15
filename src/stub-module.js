@@ -46,6 +46,12 @@ define([
         require([modulePath], function (returnObject) {
             undefDependencies(modulePath);
 
+            var defineStub = function (stubname, stub) {
+                define(stubname, [], function () {
+                    return stub;
+                });
+            };
+
             // build maps
             var stubMap = {};
             stubMap['*'] = {};
@@ -60,9 +66,7 @@ define([
                     stubMap['*'][key] = stubname;
                     resetMap['*'][key] = key;
 
-                    define(stubname, [], function () {
-                        return stubs[key];
-                    });
+                    defineStub(stubname, stubs[key]);
                 }
             }
 

@@ -47,5 +47,19 @@ function (
                 done();
             });
         });
+        it('can stub multiple dependencies', function (done) {
+            var value = 1;
+            var value2 = 2;
+
+            stubModule('tests/Hello', {
+                'dojo/request/xhr': function () {return value;},
+                'dojo/aspect': function () {return value2;}
+            }).then(function (stubbed) {
+                expect(stubbed.getData()).toBe(value);
+                expect(stubbed.testAspect()).toBe(value2);
+
+                done();
+            });
+        });
     });
 });

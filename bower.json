@@ -17,7 +17,7 @@
     "tests"
   ],
   "devDependencies": {
-    "dojo": "~1.9.3",
-    "dijit": "1.9.3"
+    "dojo": "~1.10",
+    "dijit": "~1.10"
   }
 }
