@@ -1,7 +1,7 @@
 define([
-    'dojo/_base/declare', 
-    'dijit/_WidgetBase', 
-    'dijit/_TemplatedMixin', 
+    'dojo/_base/declare',
+    'dijit/_WidgetBase',
+    'dijit/_TemplatedMixin',
     'dijit/_WidgetsInTemplateMixin',
     'dojo/text!tests/templates/Widget.html',
 
@@ -10,10 +10,10 @@ define([
 ],
 
 function (
-    declare, 
-    _WidgetBase, 
-    _TemplatedMixin, 
-    _WidgetsInTemplateMixin, 
+    declare,
+    _WidgetBase,
+    _TemplatedMixin,
+    _WidgetsInTemplateMixin,
     template,
 
     xhr
@@ -26,8 +26,8 @@ function (
         test: function () {
             // summary:
             //      description
-            console.log('test/Widget:test', arguments);
-        
+            // console.log('test/Widget:test', arguments);
+
             return xhr();
         }
 
