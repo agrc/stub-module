@@ -7,13 +7,23 @@ module.exports = function (grunt) {
     ];
 
     grunt.initConfig({
+        connect: {
+            uses_defaults: {}
+        },
+        bump: {
+            options: {
+                files: ['package.json', 'bower.json'],
+                commitFiles: ['-a'],
+                push: false
+            }
+        },
         jasmine: {
             main: {
                 options: {
                     specs: ['tests/spec/Spec*.js'],
                     vendor: [
-                        'tests/testBootstrap.js',
-                        'bower_components/dojo/dojo.js'
+                        'node_modules/dojo/loader.js',
+                        'tests/testBootstrap.js'
                     ],
                     host: 'http://localhost:8000',
                     keepRunner: true
@@ -32,16 +42,6 @@ module.exports = function (grunt) {
                 livereload: true
             },
             tasks: ['jshint', 'jasmine:main:build']
-        },
-        connect: {
-            uses_defaults: {}
-        },
-        bump: {
-            options: {
-                files: ['package.json', 'bower.json'],
-                commitFiles: ['-a'],
-                push: false
-            }
         }
     });
 

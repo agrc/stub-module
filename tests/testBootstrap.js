@@ -1,5 +1,5 @@
 /* jshint unused:false */
-var dojoConfig = {
+require.config({
     baseUrl: './',
     packages: ['tests', 'src', {
         name: 'dojo',
@@ -7,8 +7,5 @@ var dojoConfig = {
     }, {
         name: 'dijit',
         location: 'bower_components/dijit'
-    }],
-    has: {
-        'dojo-undef-api': true
-    }
-};
+    }]
+});
