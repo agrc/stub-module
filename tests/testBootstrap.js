@@ -1,5 +1,6 @@
 /* jshint unused:false */
 var dojoConfig = {
+    async: true,
     baseUrl: './',
     packages: ['tests', 'src', {
         name: 'dojo',
