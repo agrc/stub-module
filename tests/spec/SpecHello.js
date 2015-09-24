@@ -37,8 +37,10 @@ function (
                 });
             };
 
-            all([test(1), test(2)]).then(function () {
-                done();
+            test(1).then(function () {
+                test(2).then(function () {
+                    done();
+                });
             });
         });
         it('removes all aliases', function (done) {
