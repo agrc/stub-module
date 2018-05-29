@@ -1,5 +1,5 @@
 {
-  "name": "StubModule",
+  "name": "stub-module",
   "version": "0.6.1",
   "devDependencies": {
     "grunt": "~0.4",
